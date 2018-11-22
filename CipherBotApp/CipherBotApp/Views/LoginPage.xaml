@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CipherBotApp.Models"
+             x:Class="CipherBotApp.Views.LoginPage">
+    <ContentPage.BindingContext>
+
+        <viewmodels:LoginModel>
+
+        </viewmodels:LoginModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lbl_username"
+                Text="Username"/>
+            <Entry x:Name="entry_user"
+                   Text="{Binding username}"
+                   Placeholder="username"/>
+            <Label x:Name="lbl_password"
+                   Text="password"/>
+            <Entry x:Name="entry_password"
+                   Text="{Binding password}"
+                   Placeholder="password"/>
+            <Button x:Name="btnLogin"
+                    Text="Login" 
+                    BackgroundColor="AliceBlue"
+                 Clicked="btnLogin_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
