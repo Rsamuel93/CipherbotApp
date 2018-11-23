@@ -5,7 +5,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-using Newtonsoft.Json;
+using CipherBotApp.Models;
+//using Newtonsoft.Json;
 
 using Newtonsoft.Json.Linq;
 namespace CipherBotApp.Class_s
@@ -16,8 +17,6 @@ namespace CipherBotApp.Class_s
         {
             try
             {
-
-
                 var keyValues = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("username", userName),
@@ -26,24 +25,18 @@ namespace CipherBotApp.Class_s
             };
 
                 var request = new HttpRequestMessage(
-                    HttpMethod.Post, GlobalVar.BaseIPaddress + "login");
-
+                HttpMethod.Post, GlobalVar.BaseIPaddress + "login?username=" + userName + "&password=" + password);
                 request.Content = new FormUrlEncodedContent(keyValues);
-
                 var client = new HttpClient();
                 var response = await client.SendAsync(request);
-
-                var content = await response.Content.ReadAsStringAsync();
-
-
-
+                string content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(content);
 
                 return content;
             }
-            catch (Exception eeee)
+            catch(Exception eee)
             {
-
-                return eeee.ToString();
+                return eee.ToString();
             }
         }
     }

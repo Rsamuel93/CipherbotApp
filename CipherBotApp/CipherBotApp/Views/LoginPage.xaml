@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:CipherBotApp.Models"
              x:Class="CipherBotApp.Views.LoginPage">
+  
     <ContentPage.BindingContext>
 
         <viewmodels:LoginModel>
@@ -11,6 +12,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+            
             <Label x:Name="lbl_username"
                 Text="Username"/>
             <Entry x:Name="entry_user"
@@ -24,8 +26,8 @@
             <Button x:Name="btnLogin"
                     Text="Login" 
                     BackgroundColor="AliceBlue"
-                 Clicked="btnLogin_Clicked"/>
-
+                    Clicked="btnLogin_Clicked"/>
+        
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
