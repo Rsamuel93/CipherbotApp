@@ -2,16 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CipherBotApp"
+             BackgroundColor="White"
              x:Class="CipherBotApp.MainPage">
+   
+    
+    <AbsoluteLayout>
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+            AbsoluteLayout.LayoutFlags="All">
 
-    <ScrollView>
-        <StackLayout Spacing="10" Padding="10">
-            <Button x:Name="takePhoto" Text="Take Photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked"/>
-            <Button x:Name="UploadPhoto" Text="Upload Photo" BackgroundColor="AliceBlue" Clicked="Upload_Photo_Button_Clicked"/>
-            <Label x:Name="DirectoryLabel"/>
-            <Label x:Name="remotepathlabel"/>
-            <Image x:Name="image"/>
+            <Frame OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Button x:Name="takePhoto" Text="Take Photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked"/>
+                    <Button x:Name="UploadPhoto" Text="Upload Photo" BackgroundColor="AliceBlue" Clicked="Upload_Photo_Button_Clicked"/>
+                    <Label x:Name="DirectoryLabel"/>
+                    <Label x:Name="remotepathlabel"/>
+                    <Image x:Name="image" VerticalOptions="CenterAndExpand"/>
+                  
+
+                </StackLayout>
+            </Frame>
+            <Image x:Name="BgImage" 
+                   VerticalOptions="EndAndExpand"
+                   Source="LondonBackground.jpg"
+               Aspect="AspectFill"
+              />
         </StackLayout>
-    </ScrollView>
+
+
+          
+      
+    </AbsoluteLayout>
 
 </ContentPage>

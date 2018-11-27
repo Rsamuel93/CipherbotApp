@@ -2,8 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:CipherBotApp.Models"
-             x:Class="CipherBotApp.Views.LoginPage">
+             x:Class="CipherBotApp.Views.LoginPage" 
+             BackgroundColor="White"
+            >
   
+
     <ContentPage.BindingContext>
 
         <viewmodels:LoginModel>
@@ -11,23 +14,43 @@
         </viewmodels:LoginModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
+        <AbsoluteLayout>
+
             
-            <Label x:Name="lbl_username"
-                Text="Username"/>
-            <Entry x:Name="entry_user"
+
+            <StackLayout
+            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+            AbsoluteLayout.LayoutFlags="All">
+
+                <Frame OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Label x:Name="lbl_username"
+                        Text="Username"/>
+                        <Entry x:Name="entry_user"
                    Text="{Binding username}"
                    Placeholder="username"/>
-            <Label x:Name="lbl_password"
-                   Text="password"/>
-            <Entry x:Name="entry_password"
+                        <Label x:Name="lbl_password"
+                   Text="Password"/>
+                        <Entry x:Name="entry_password"
                    Text="{Binding password}"
                    Placeholder="password"/>
-            <Button x:Name="btnLogin"
+                    <Button x:Name="btnLogin"
                     Text="Login" 
-                    BackgroundColor="AliceBlue"
+                    BackgroundColor="White"
                     Clicked="btnLogin_Clicked"/>
-        
-        </StackLayout>
+                   
+                    </StackLayout>
+                </Frame>
+                <Image x:Name="BgImage" 
+                   VerticalOptions="EndAndExpand"
+                   Source="LondonBackground.jpg"
+               Aspect="AspectFill"
+              />
+            </StackLayout>
+          
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

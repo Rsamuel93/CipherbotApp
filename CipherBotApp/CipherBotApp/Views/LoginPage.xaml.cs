@@ -14,17 +14,23 @@ namespace CipherBotApp.Views
 	public partial class LoginPage : ContentPage
     {
         private ApiServices api = new ApiServices();
-        public LoginPage ()
-		{
-			InitializeComponent ();
-		}
+        public LoginPage()
+        {
+            
+         
+            InitializeComponent();
+          
+        }
+
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
+         
+
             try {
-                await DisplayAlert("Login Failed", "Username Or Password Incorrect", "Ok");
+               
                 string strResult = await api.LoginAsync(entry_user.Text, entry_password.Text);
                 DateTime? dateResult = null;
-
+               // await DisplayAlert("Error",strResult, "Ok");
                 if (strResult.Length<8)
                 {
 
@@ -46,7 +52,7 @@ namespace CipherBotApp.Views
                 else
                 {
                     MainPage main = new MainPage();
-                    await App.Current.MainPage.Navigation.PushAsync(main);
+                    await Navigation.PushAsync(main);
                 }
             }
             catch(Exception eeeee)
@@ -57,9 +63,9 @@ namespace CipherBotApp.Views
             }
         }
 
-        private void btn_test_clicked(object sender, EventArgs e)
+        private void test_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("", "", "");
+            BgImage.Source = ImageSource.FromFile("LondonBackground.jpg");
         }
     }
 }

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherBotApp.Android", "Cip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherBotApp.iOS", "CipherBotApp\CipherBotApp.iOS\CipherBotApp.iOS.csproj", "{38977922-5202-4DB5-817C-D8E4EC974491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherBotApp", "CipherBotApp\CipherBotApp\CipherBotApp.csproj", "{9681FCB9-6D28-4DB7-8B71-135BA4E8E402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CipherBotApp", "CipherBotApp\CipherBotApp\CipherBotApp.csproj", "{9681FCB9-6D28-4DB7-8B71-135BA4E8E402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
