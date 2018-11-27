@@ -20,7 +20,8 @@
                     <Button x:Name="UploadPhoto" Text="Upload Photo" BackgroundColor="AliceBlue" Clicked="Upload_Photo_Button_Clicked"/>
                     <Label x:Name="DirectoryLabel"/>
                     <Label x:Name="remotepathlabel"/>
-                    <Image x:Name="image" VerticalOptions="CenterAndExpand"/>
+                    <Image x:Name="image" VerticalOptions="Center"
+                            />
                   
 
                 </StackLayout>

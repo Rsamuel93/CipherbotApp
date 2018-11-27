@@ -12,7 +12,7 @@ namespace CipherBotApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new LoginPage();
       
 
         }

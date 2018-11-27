@@ -45,12 +45,13 @@ namespace CipherBotApp.Views
                 if(dateResult < DateTime.Today)
                 {
 
-                    await DisplayAlert("Subscription Expired", "Your Subscription To Cipherbot Has Expired, Please Visit Website To Resubscrive", "Ok");
+                    await DisplayAlert("Subscription Expired", "Your Subscription To Cipherbot Has Expired, Please Visit Website To Resubscribe", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
                 }
                 else
                 {
+                    GlobalVar.User = entry_user.Text;
                     MainPage main = new MainPage();
                     await Navigation.PushAsync(main);
                 }
@@ -63,9 +64,6 @@ namespace CipherBotApp.Views
             }
         }
 
-        private void test_Clicked(object sender, EventArgs e)
-        {
-            BgImage.Source = ImageSource.FromFile("LondonBackground.jpg");
-        }
+       
     }
 }

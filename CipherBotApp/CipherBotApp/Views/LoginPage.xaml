@@ -27,15 +27,18 @@
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand">
                     <StackLayout>
-                        <Label x:Name="lbl_username"
-                        Text="Username"/>
-                        <Entry x:Name="entry_user"
+                     <Label x:Name="lbl_username"
+                   FontAttributes="Bold"
+                   Text="Username"/>
+                   <Entry x:Name="entry_user"
                    Text="{Binding username}"
                    Placeholder="username"/>
-                        <Label x:Name="lbl_password"
+                   <Label x:Name="lbl_password"
+                   FontAttributes="Bold"
                    Text="Password"/>
                         <Entry x:Name="entry_password"
                    Text="{Binding password}"
+                     IsPassword="True"
                    Placeholder="password"/>
                     <Button x:Name="btnLogin"
                     Text="Login" 

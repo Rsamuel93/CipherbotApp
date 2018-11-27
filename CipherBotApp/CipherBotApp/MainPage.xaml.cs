@@ -44,9 +44,11 @@ namespace CipherBotApp
                 {
 
                     Directory = "Sample",
-                    PhotoSize = PhotoSize.Medium,
-                    CompressionQuality = 90,
-                    Name = $"{DateTime.UtcNow}.jpg"
+
+                    PhotoSize = PhotoSize.Custom,
+                    CustomPhotoSize = 50,
+                  
+                    Name = $"{GlobalVar.User}.jpg"
 
                 });
             }
@@ -58,7 +60,7 @@ namespace CipherBotApp
             if (_Mediafile == null)
                 return;
 
-            DirectoryLabel.Text = _Mediafile.Path;
+           // DirectoryLabel.Text = _Mediafile.Path;
             image.Source = ImageSource.FromStream(() =>
             {
 
@@ -88,12 +90,12 @@ namespace CipherBotApp
 
                 var httpresponse = await httpClient.PostAsync(Uploadtoserveraddress, content);
 
-                remotepathlabel.Text = await httpresponse.Content.ReadAsStringAsync();
+                //remotepathlabel.Text = await httpresponse.Content.ReadAsStringAsync();
                 await DisplayAlert("", "Photo Uploaded", "OK");
             }
-            catch (Exception eee)
+            catch (Exception)
             {
-                await DisplayAlert("", eee.ToString(), "OK");
+                await DisplayAlert("", "No Image Selected", "OK");
 
             }
 

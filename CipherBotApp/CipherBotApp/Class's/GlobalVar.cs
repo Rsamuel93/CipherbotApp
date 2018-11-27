@@ -8,6 +8,6 @@ namespace CipherBotApp.Class_s
     {
         public static string BaseIPaddress = "http://34.211.192.222/api/files/";
         public static string ExpiryDate;
-        public static Int32 test;
+        public static string User;
     }
 }
