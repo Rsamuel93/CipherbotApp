@@ -11,7 +11,7 @@ using CipherBotApp.Models;
 using Newtonsoft.Json.Linq;
 namespace CipherBotApp.Class_s
 {
-   public class ApiServices
+    public class ApiServices
     {
         public async Task<string> LoginAsync(string userName, string password)
         {
@@ -34,7 +34,7 @@ namespace CipherBotApp.Class_s
 
                 return content;
             }
-            catch(Exception eee)
+            catch (Exception eee)
             {
                 return eee.ToString();
             }

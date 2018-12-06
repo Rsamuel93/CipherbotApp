@@ -4,38 +4,53 @@
              xmlns:local="clr-namespace:CipherBotApp"
              BackgroundColor="White"
              x:Class="CipherBotApp.MainPage">
-   
-    
-    <AbsoluteLayout>
-        <StackLayout
-            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-            AbsoluteLayout.LayoutFlags="All">
 
-            <Frame OutlineColor="Accent" 
-                   WidthRequest="300" 
-                   HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand">
-                <StackLayout>
-                    <Button x:Name="takePhoto" Text="Take Photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked"/>
-                    <Button x:Name="UploadPhoto" Text="Upload Photo" BackgroundColor="AliceBlue" Clicked="Upload_Photo_Button_Clicked"/>
-                    <Label x:Name="DirectoryLabel"/>
-                    <Label x:Name="remotepathlabel"/>
+
+  <AbsoluteLayout>
+    <StackLayout
+        AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+        AbsoluteLayout.LayoutFlags="All">
+
+      <Frame OutlineColor="Accent"
+             WidthRequest="300"
+             HorizontalOptions="Center"
+             VerticalOptions="CenterAndExpand">
+        <StackLayout>
+                    <Button x:Name="takePhoto" Text="Take Photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked" BorderWidth="2" BorderColor="Black"/>
+                    <Button x:Name="UploadPhoto" Text="Upload Photo" BackgroundColor="AliceBlue" Clicked="Upload_Photo_Button_Clicked" BorderWidth="2" BorderColor="Black"/>
+                    <Label x:Name="lbl_email"
+                   FontAttributes="Bold"
+                   Text="Recipient Email"/>
+                    <Entry x:Name="entry_email"
+            Placeholder="Recipient Email"/>
+                    <Label x:Name="lbl_filename"
+                   FontAttributes="Bold"
+                   Text="File Name"/>
+                    <Entry x:Name="entry_filename"
+            Placeholder="File Name"/>
                     <Image x:Name="image" VerticalOptions="Center"
                             />
-                  
+
+                    <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="For Assistnace Please Visit www.MarketSlip.com"/>
+                    <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="Or Email Assitance@Sonixsoftwareltd.com"/>
+
 
                 </StackLayout>
-            </Frame>
-            <Image x:Name="BgImage" 
-                   VerticalOptions="EndAndExpand"
-                   Source="LondonBackground.jpg"
-               Aspect="AspectFill"
+      </Frame>
+      <Image x:Name="BgImage"
+             VerticalOptions="EndAndExpand"
+             Source="LondonBackground.jpg"
+         Aspect="AspectFill"
               />
-        </StackLayout>
+    </StackLayout>
 
 
-          
-      
-    </AbsoluteLayout>
+
+
+  </AbsoluteLayout>
 
 </ContentPage>

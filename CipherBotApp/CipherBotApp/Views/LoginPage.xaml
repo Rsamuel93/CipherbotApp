@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:CipherBotApp.Models"
              x:Class="CipherBotApp.Views.LoginPage" 
-             BackgroundColor="White"
-            >
+             BackgroundColor="White"  >
+          
   
 
     <ContentPage.BindingContext>
@@ -15,8 +15,12 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <AbsoluteLayout>
+            <Image x:Name="Header" 
+                   VerticalOptions="EndAndExpand"
+                   Source="MarketSlip.png"
+               Aspect="AspectFill"
+              />
 
-            
 
             <StackLayout
             AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
@@ -42,11 +46,19 @@
                    Placeholder="password"/>
                     <Button x:Name="btnLogin"
                     Text="Login" 
-                    BackgroundColor="White"
+                    BackgroundColor="White" BorderWidth="2" BorderColor="Black"
                     Clicked="btnLogin_Clicked"/>
-                   
+                        <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="For Assistnace Please Visit www.MarketSlip.com"/>
+                        <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="Or Email Assitance@Sonixsoftwareltd.com"/>
+                        
                     </StackLayout>
+                    
                 </Frame>
+             
                 <Image x:Name="BgImage" 
                    VerticalOptions="EndAndExpand"
                    Source="LondonBackground.jpg"

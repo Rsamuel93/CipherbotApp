@@ -1,8 +1,18 @@
-﻿using CipherBotApp.Class_s;
+﻿using Android.App;
+using Android.Content;
+using Android.Provider;
+using CipherBot.Class_s;
+using CipherBotApp.Class_s;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -13,57 +23,69 @@ namespace CipherBotApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
     {
+     
+      
         private ApiServices api = new ApiServices();
         public LoginPage()
         {
             
          
             InitializeComponent();
-          
+            //DependencyService.Get<IMediaService>().ClearFiles(_images);
+
         }
 
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
-         
+            
 
-            try {
+                try
+                {
                
                 string strResult = await api.LoginAsync(entry_user.Text, entry_password.Text);
-                DateTime? dateResult = null;
-               // await DisplayAlert("Error",strResult, "Ok");
-                if (strResult.Length<8)
-                {
+              //  await DisplayAlert("Login Failed", strResult, "Ok");
+                strResult = strResult.Replace("/", "-");
+                strResult = strResult.Replace(" ", null);
+                strResult = strResult.Trim('"');
+       
 
-                    await DisplayAlert("Login Failed", "Username Or Password Incorrect", "Ok");
+                DateTime dateResult;
+                if (!DateTime.TryParseExact(strResult, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateResult))
+                {
+                   
+                
+                   await DisplayAlert("Login Failed", "Username Or Password Incorrect", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
+                    return;
+
                 }
-                else
-                {
-                    dateResult= Convert.ToDateTime(strResult);
-                }
+               
                 if(dateResult < DateTime.Today)
                 {
 
-                    await DisplayAlert("Subscription Expired", "Your Subscription To Cipherbot Has Expired, Please Visit Website To Resubscribe", "Ok");
+                    await DisplayAlert("Subscription Expired", "Your Subscription Has Expired, Please Visit Website To Resubscribe", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
+                    return;
                 }
                 else
                 {
                     GlobalVar.User = entry_user.Text;
-                    MainPage main = new MainPage();
-                    await Navigation.PushAsync(main);
+                    await Navigation.PushAsync(new MainPage());
                 }
             }
-            catch(Exception eeeee)
+            catch(Exception)
             {
 
-                await DisplayAlert("Error", eeeee.ToString(), "Ok");
+                await DisplayAlert("Error","Error", "Ok");
 
             }
         }
+      
 
        
+
+    
     }
 }
