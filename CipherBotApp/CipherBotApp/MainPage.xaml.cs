@@ -13,18 +13,20 @@ using System.Xml.Linq;
 using CipherBotApp.Class_s;
 using Xamarin.Forms;
 using System.Text.RegularExpressions;
+using CipherBot.Views;
 
 namespace CipherBotApp
 {
     public partial class MainPage : ContentPage
     {
         int count;
-      
+        private string strmillisecond = Convert.ToString(DateTime.Now.Millisecond);
         private MediaFile _Mediafile;
         public MainPage()
         {
             InitializeComponent();
             entry_email.Text = GlobalVar.User;
+
         }
         Func<object> func = () =>
         {
@@ -99,7 +101,7 @@ namespace CipherBotApp
                             AllowCropping = true,
                             //OverlayViewProvider = func,
                             //MaxWidthHeight = 50,
-                            Name = GlobalVar.User+"_" +entry_email.Text+"_" + entry_filename.Text +"_"+ count.ToString() + ".jpg"
+                            Name = GlobalVar.User+"_" +entry_email.Text  +"_"+ entry_filename.Text + "_" + GlobalVar.strGuid + "_"+ strmillisecond + "_" + count.ToString() + ".jpg"
 
                         });
 
@@ -131,9 +133,19 @@ namespace CipherBotApp
 
                     count = 0;
 
+                  string notes = null;
+                  notes = await DisplayActionSheet("Add Notes To File?", "Yes", "No");
+                if (notes != "Yes")
+                {
 
-
-
+                    await Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    GlobalVar.strfilename = entry_filename.Text;
+                    GlobalVar.strMillisecond = strmillisecond;
+                    await Navigation.PushAsync(new CustomerNotes());
+                }
                 }
                 catch (Exception ee)
 
@@ -145,15 +157,7 @@ namespace CipherBotApp
                 if (_Mediafile == null)
                     return;
 
-                // DirectoryLabel.Text = _Mediafile.Path;
-              //  image.Source = ImageSource.FromStream(() =>
-              //  {
-
-              //       return _Mediafile.GetStream();
-              //  });
-
-
-                // await DependencyService.Get<IMediaService>().OpenGallery();
+            
          
 
 

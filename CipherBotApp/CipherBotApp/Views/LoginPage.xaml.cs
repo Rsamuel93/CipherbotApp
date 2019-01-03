@@ -47,21 +47,31 @@ namespace CipherBotApp.Views
                 strResult = strResult.Replace("/", "-");
                 strResult = strResult.Replace(" ", null);
                 strResult = strResult.Trim('"');
-       
+                RegexOptions options = RegexOptions.Multiline;
+                string pattern = @"(?<=^|_)(\""""(?:[^\""""]|\""""\"""")*\""""|[^,]*)_(?<=^|_)(\""""(?:[^\""""]|\""""\"""")*\""""|[^,]*)_(?<=^|_)(\""""(?:[^\""""]|\""""\"""")*\""""|[^,]*)";
+                foreach (Match m in Regex.Matches(strResult,pattern, options))
+                {
+                    GlobalVar.ExpiryDate = m.Groups[1].Value;
+                    GlobalVar.strGuid = m.Groups[2].Value;
+                    GlobalVar.intpaid = Convert.ToInt32(m.Groups[3].Value);
+                   
+
+                }
 
                 DateTime dateResult;
-                if (!DateTime.TryParseExact(strResult, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateResult))
+
+                if (DateTime.TryParseExact(GlobalVar.ExpiryDate, "dd -MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateResult))
                 {
                    
                 
-                   await DisplayAlert("Login Failed", "Username Or Password Incorrect", "Ok");
+                    await DisplayAlert("Login Failed", "Username Or Password Incorrect", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
                     return;
 
                 }
                
-                if(dateResult < DateTime.Today)
+                if(Convert.ToDateTime(GlobalVar.ExpiryDate) < DateTime.Today)
                 {
 
                     await DisplayAlert("Subscription Expired", "Your Subscription Has Expired, Please Visit Website To Resubscribe", "Ok");
@@ -69,6 +79,15 @@ namespace CipherBotApp.Views
                     entry_password.Text = null;
                     return;
                 }
+                if (GlobalVar.intpaid == 1)
+                {
+
+                    await DisplayAlert("Payemnt Issue", "Problem WIth Payments Please Contact Assistance@sonixsoftwareltd.com", "Ok");
+                    entry_user.Text = null;
+                    entry_password.Text = null;
+                    return;
+                }
+
                 else
                 {
                     GlobalVar.User = entry_user.Text;

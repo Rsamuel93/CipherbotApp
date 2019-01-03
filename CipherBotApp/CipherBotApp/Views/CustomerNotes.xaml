@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CipherBot.Views.CustomerNotes">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image x:Name="Header" 
+                   VerticalOptions="EndAndExpand"
+                   Source="MarketSlip.png"
+               Aspect="AspectFill"
+              />
+
+
+            <StackLayout
+            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+            AbsoluteLayout.LayoutFlags="All">
+
+                <Frame OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Label x:Name="lbl_username"
+                   FontAttributes="Bold"
+                   Text="Notes"/>
+                        <Entry x:Name="entry_notes"
+                   Text="{Binding username}"
+                   Placeholder="Notes"/>
+
+                        <Button x:Name="btnCreateNotes"
+                    Text="Save" 
+                    BackgroundColor="White" BorderWidth="2" BorderColor="Black"
+                    Clicked="btnCustomerNotes_Clicked"/>
+                        <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="For Assistnace Please Visit www.MarketSlip.com"/>
+                        <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="Or Email Assitance@Sonixsoftwareltd.com"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Image x:Name="BgImage" 
+                   VerticalOptions="EndAndExpand"
+                   Source="LondonBackground.jpg"
+               Aspect="AspectFill"
+              />
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
