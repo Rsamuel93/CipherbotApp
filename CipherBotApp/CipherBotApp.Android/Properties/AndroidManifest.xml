@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.CipherBotApp" android:installLocation="preferExternal" android:versionCode="1" android:versionName="1.0">
-	<uses-sdk android:minSdkVersion="20" android:targetSdkVersion="27" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<application android:label="CipherBotApp.Android">
-		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.companyname.CipherBotApp.fileprovider" android:exported="false" android:grantUriPermissions="true">
-			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
-		</provider>
-	</application>
+  <uses-sdk android:minSdkVersion="20" android:targetSdkVersion="27" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <application android:label="CipherBotApp.Android">
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.companyname.CipherBotApp.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+    </provider>
+  </application>
 </manifest>
